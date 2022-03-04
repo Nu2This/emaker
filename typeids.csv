@@ -1,0 +1,182 @@
+179,Nuclear S,179
+180,Proton S,180
+181,Depleted Uranium S,181
+183,Fusion S,183
+184,Phased Plasma S,184
+185,EMP S,185
+186,Carbonized Lead M,186
+187,Nuclear M,187
+188,Proton M,188
+189,Depleted Uranium M,189
+190,Titanium Sabot M,190
+191,Fusion M,191
+192,Phased Plasma M,192
+193,EMP M,193
+194,Carbonized Lead L,194
+195,Nuclear L,195
+196,Proton L,196
+197,Depleted Uranium L,197
+198,Titanium Sabot L,198
+199,Fusion L,199
+200,Phased Plasma L,200
+201,EMP L,201
+216,Tungsten Charge S,216
+217,Iridium Charge S,217
+218,Lead Charge S,218
+219,Thorium Charge S,219
+220,Uranium Charge S,220
+221,Plutonium Charge S,221
+222,Antimatter Charge S,222
+223,Iron Charge M,223
+224,Tungsten Charge M,224
+225,Iridium Charge M,225
+226,Lead Charge M,226
+227,Thorium Charge M,227
+228,Uranium Charge M,228
+229,Plutonium Charge M,229
+231,Iron Charge L,231
+232,Tungsten Charge L,232
+233,Iridium Charge L,233
+234,Lead Charge L,234
+235,Thorium Charge L,235
+236,Uranium Charge L,236
+237,Plutonium Charge L,237
+238,Antimatter Charge L,238
+244,Xray S,244
+252,Xray M,252
+260,Xray L,260
+485,150mm Light AutoCannon I,485
+486,200mm AutoCannon I,486
+487,250mm Light Artillery Cannon I,487
+488,280mm Howitzer Artillery I,488
+490,220mm Vulcan AutoCannon I,490
+491,425mm AutoCannon I,491
+492,650mm Artillery Cannon I,492
+493,720mm Howitzer Artillery I,493
+494,Dual 425mm AutoCannon I,494
+495,Dual 650mm Repeating Cannon I,495
+496,800mm Repeating Cannon I,496
+498,1400mm Howitzer Artillery I,498
+499,Light Missile Launcher I,499
+583,Condor,583
+585,Slasher,585
+590,Inquisitor,590
+591,Tormentor,591
+598,Breacher,598
+599,Burst,599
+602,Kestrel,602
+603,Merlin,603
+609,Maulus,609
+622,Stabber,622
+623,Moa,623
+624,Maller,624
+626,Vexor,626
+627,Thorax,627
+631,Scythe,631
+649,Tayra,649
+652,Mammoth,652
+657,Iteron Mark V,657
+1201,Wasp I,1201
+1875,Rapid Light Missile Launcher I,1875
+2006,Omen,2006
+2161,Crucifier,2161
+2173,Infiltrator I,2173
+2183,Hammerhead I,2183
+2193,Praetor I,2193
+2203,Acolyte I,2203
+2444,Ogre I,2444
+2454,Hobgoblin I,2454
+2464,Hornet I,2464
+2476,Berserker I,2476
+2486,Warrior I,2486
+3766,Vigil,3766
+4393,Drone Damage Amplifier I,4393
+10246,Mining Drone I,10246
+11457,R.Db - Viziam,11457
+11461,R.Db - Boundless Creations,11461
+11475,R.A.M.- Armor/Hull Tech,11475
+11476,R.A.M.- Ammunition Tech,11476
+11478,R.A.M.- Starship Tech,11478
+11481,R.A.M.- Robotics,11481
+11482,R.A.M.- Energy Tech,11482
+11483,R.A.M.- Electronics,11483
+11484,R.A.M.- Shield Tech,11484
+11486,R.A.M.- Weapon Tech,11486
+11530,Plasma Thruster,11530
+11531,Ion Thruster,11531
+11532,Fusion Thruster,11532
+11533,Magpulse Thruster,11533
+11534,Gravimetric Sensor Cluster,11534
+11535,Magnetometric Sensor Cluster,11535
+11536,Ladar Sensor Cluster,11536
+11537,Radar Sensor Cluster,11537
+11539,Nanoelectrical Microprocessor,11539
+11540,Quantum Microprocessor,11540
+11541,Photon Microprocessor,11541
+11542,Fernite Carbide Composite Armor Plate,11542
+11543,Tungsten Carbide Armor Plate,11543
+11544,Titanium Diborite Armor Plate,11544
+11545,Crystalline Carbonide Armor Plate,11545
+11547,Fusion Reactor Unit,11547
+11548,Nuclear Reactor Unit,11548
+11549,Antimatter Reactor Unit,11549
+11550,Graviton Reactor Unit,11550
+11551,Electrolytic Capacitor Unit,11551
+11552,Scalar Capacitor Unit,11552
+11553,Oscillator Capacitor Unit,11553
+11554,Tesseract Capacitor Unit,11554
+11555,Deflection Shield Emitter,11555
+11556,Pulse Shield Emitter,11556
+11557,Linear Shield Emitter,11557
+11558,Sustained Shield Emitter,11558
+11688,Particle Accelerator Unit,11688
+11689,Laser Focusing Crystals,11689
+11690,Superconductor Rails,11690
+11691,Thermonuclear Trigger Unit,11691
+11692,Nuclear Pulse Generator,11692
+11693,Graviton Pulse Generator,11693
+11694,EM Pulse Generator,11694
+11695,Plasma Pulse Generator,11695
+13320,Cruise Missile Launcher I,13320
+15508,Vespa I,15508
+15510,Valkyrie I,15510
+20138,Heavy Assault Missile Launcher I,20138
+23057,Dragonfly I,23057
+23525,Curator I,23525
+23559,Warden I,23559
+23561,Garde I,23561
+23563,Bouncer I,23563
+25954,Large Semiconductor Memory Cell I,25954
+26038,Large Projectile Ambit Extension I,26038
+26046,Large Projectile Burst Aerator I,26046
+26048,Large Projectile Collision Accelerator I,26048
+26088,Large Core Defense Field Extender I,26088
+28668,Nanite Repair Paste,28668
+28999,Optimal Range Script,28999
+29001,Tracking Speed Script,29001
+29005,Optimal Range Disruption Script,29005
+29007,Tracking Speed Disruption Script,29007
+29009,Targeting Range Script,29009
+29011,Scan Resolution Script,29011
+29013,Scan Resolution Dampening Script,29013
+29015,Targeting Range Dampening Script,29015
+31047,Medium Auxiliary Nano Pump I,31047
+31358,Small Ancillary Current Router I,31358
+31360,Medium Ancillary Current Router I,31360
+31406,Small Semiconductor Memory Cell I,31406
+31668,Small Projectile Burst Aerator I,31668
+33400,Bastion Module I,33400
+33448,Rapid Heavy Missile Launcher I,33448
+35794,Missile Range Script,35794
+35795,Missile Precision Script,35795
+37288,Rapid Torpedo Launcher I,37288
+40334,Missile Range Disruption Script,40334
+40335,Missile Precision Disruption Script,40335
+41155,ECCM Script,41155
+43699,Ice Harvesting Drone I,43699
+47035,Standup Templar I,47035
+47138,Standup Dragonfly I,47138
+47139,Standup Firbolg I,47139
+47140,Standup Einherji I,47140
+60276,Simple Asteroid Mining Crystal Type A I,60276
+60285,Coherent Asteroid Mining Crystal Type A I,60285
