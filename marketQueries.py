@@ -1,6 +1,7 @@
 import requests
 import csv
 import pandas as pd
+import json
 
 # TODO impliment region selection from command line either by numbered choice
 #      or by case insensitive match using regions.csv for region number
@@ -31,10 +32,40 @@ def getdata():
         f.write(r.text)
 
 
+TYPEID = "typeId"
+
+
 def queryJSON():
-    marketdata = pd.read_json('marketdata.json')
-    sell_order = marketdata["sell"]
-    print(sell_order)
+    types = {}
+    with open("typeids.csv", "r") as typeFile:
+        typeCSV = csv.DictReader(typeFile)
+        for line in typeCSV:
+            types[line[TYPEID]] = line["Name"]
+
+    with open("marketdata.json", "r") as jsonFile:
+        data = json.load(jsonFile)
+
+    # setup column names
+    orderTypes = ["buy", "sell"]
+    attributes = ["avg", "fivePercent", "max", "median", "min", "stdDev", "variance", "volume", "wavg"]
+    columns = ["typeId", "itemName"]
+    for order in orderTypes:
+        for attribute in attributes:
+            columns.append(order + attribute)
+
+    # process json into nested lists
+    newData = []
+    for row in data:
+        typeId = row['buy']['forQuery']['types'][0]
+        newRow = [typeId, types[str(typeId)]]
+        for order in orderTypes:
+            for attribute in attributes:
+                newRow.append(row[order][attribute])
+        newData.append(newRow)
+
+    # create pandas dataframe from nested lists
+    df = pd.DataFrame(newData, columns=columns)
+    return df
 
 
 if __name__ == "__main__":
