@@ -1,6 +1,6 @@
 import requests
 import csv
-import json
+import pandas as pd
 
 # TODO impliment region selection from command line either by numbered choice
 #      or by case insensitive match using regions.csv for region number
@@ -32,8 +32,9 @@ def getdata():
 
 
 def queryJSON():
-    with open("marketdata.json") as json_file:
-        data = json.load(json_file)
+    marketdata = pd.read_json('marketdata.json')
+    sell_order = marketdata["sell"]
+    print(sell_order)
 
 
 if __name__ == "__main__":
