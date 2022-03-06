@@ -1,5 +1,6 @@
 import requests
 import csv
+import xml.etree.ElementTree as ET
 import pandas as pd
 
 # TODO impliment region selection from command line either by numbered choice
@@ -25,16 +26,29 @@ def getdata():
     for item in data:
         ids += "," + item[0]
     r = requests.get(
-        "https://api.evemarketer.com/ec/marketstat/json?typeid=" + ids.lstrip(",")
+        "https://api.evemarketer.com/ec/marketstat?typeid=" + ids.lstrip(",")
     )
     with open("marketdata.json", "w") as f:
         f.write(r.text)
 
 
 def queryJSON():
-    marketdata = pd.read_json('marketdata.json')
-    sell_order = marketdata["sell"]
-    print(sell_order)
+    tree = ET.parse('marketdata.json')
+    root = tree.getroot()
+    child = root[0]
+    items = child[0]
+    for entry in items:
+        print(entry[1])
+    # data = []
+    # cols = []
+    #for i in range(len(root.getchildren())):
+    #    child = root.getchildren()[i]
+    #    data.append([subchild.text for subchild in child.getchildren()])
+    #    cols.append(child.tag)
+
+    #df = pd.DataFrame(data).T
+    #df.columns = cols
+    #print(df)
 
 
 if __name__ == "__main__":
