@@ -65,10 +65,33 @@ def queryJSON():
 
     # create pandas dataframe from nested lists
     df = pd.DataFrame(newData, columns=columns)
+    df.to_csv('clobbered.csv')
     return df
 
 
+def processInventory(interestedItemIds):
+    types = {}
+    with open('invTypes.csv', 'r', errors='replace') as typeFile:
+        typeCSV = csv.DictReader(typeFile)
+        for line in typeCSV:
+            try:
+                types[line["typeID"]] = line["typeName"]
+            except:
+                continue
+
+    materialMapping = {}
+    with open('invTypeMaterials.csv', 'r') as requirementsFile:
+        requirementsCSV = csv.DictReader(requirementsFile)
+        for line in requirementsCSV:
+            if line["typeID"] in materialMapping.keys():
+                materialMapping[line["typeID"]].append((line["materialTypeID"], line["quantity"], types[line["materialTypeID"]]))
+            else:
+                materialMapping[line["typeID"]] = [(line["materialTypeID"], line["quantity"], types[line["materialTypeID"]])]
+    return types, materialMapping
+
+
 if __name__ == "__main__":
+    processInventory([])
     queryJSON()
     # refresh = input("Would you like to refresh market data with new information? y/n")
     # if refresh == 'y':
