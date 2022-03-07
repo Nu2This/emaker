@@ -2,6 +2,7 @@ import requests
 import csv
 import pandas as pd
 import json
+from EveItemList import EvEItemList
 
 # TODO impliment region selection from command line either by numbered choice
 #      or by case insensitive match using regions.csv for region number
@@ -11,6 +12,7 @@ import json
 # TODO figure out how to grab the data we want out of the JSON
 #           Looking Quantity sold of owned bp items and at what price
 #           Look for ROI in just buyin mats in region to manufacture
+
 
 
 def getdata():
@@ -70,6 +72,8 @@ def queryJSON():
 
 
 def processInventory(interestedItemIds):
+    # https://www.fuzzwork.co.uk/dump/latest/
+
     types = {}
     with open('invTypes.csv', 'r', errors='replace') as typeFile:
         typeCSV = csv.DictReader(typeFile)
@@ -87,7 +91,10 @@ def processInventory(interestedItemIds):
                 materialMapping[line["typeID"]].append((line["materialTypeID"], line["quantity"], types[line["materialTypeID"]]))
             else:
                 materialMapping[line["typeID"]] = [(line["materialTypeID"], line["quantity"], types[line["materialTypeID"]])]
-    return types, materialMapping
+
+    itemMapping = EvEItemList(types, materialMapping)
+    itemMapping.CalculateAllRawMaterials()
+    return itemMapping
 
 
 if __name__ == "__main__":
