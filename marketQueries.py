@@ -2,6 +2,8 @@ import requests
 import csv
 import xml.etree.ElementTree as ET
 import pandas as pd
+import json
+from EveItemList import EvEItemList
 
 # TODO impliment region selection from command line either by numbered choice
 #      or by case insensitive match using regions.csv for region number
@@ -11,6 +13,7 @@ import pandas as pd
 # TODO figure out how to grab the data we want out of the JSON
 #           Looking Quantity sold of owned bp items and at what price
 #           Look for ROI in just buyin mats in region to manufacture
+
 
 
 def getdata():
@@ -32,7 +35,11 @@ def getdata():
         f.write(r.text)
 
 
+TYPEID = "typeId"
+
+
 def queryJSON():
+<<<<<<< HEAD
     tree = ET.parse('marketdata.json')
     root = tree.getroot()
     child = root[0]
@@ -49,9 +56,69 @@ def queryJSON():
     #df = pd.DataFrame(data).T
     #df.columns = cols
     #print(df)
+=======
+    types = {}
+    with open("typeids.csv", "r") as typeFile:
+        typeCSV = csv.DictReader(typeFile)
+        for line in typeCSV:
+            types[line[TYPEID]] = line["Name"]
+
+    with open("marketdata.json", "r") as jsonFile:
+        data = json.load(jsonFile)
+
+    # setup column names
+    orderTypes = ["buy", "sell"]
+    attributes = ["avg", "fivePercent", "max", "median", "min", "stdDev", "variance", "volume", "wavg"]
+    columns = ["typeId", "itemName"]
+    for order in orderTypes:
+        for attribute in attributes:
+            columns.append(order + attribute)
+
+    # process json into nested lists
+    newData = []
+    for row in data:
+        typeId = row['buy']['forQuery']['types'][0]
+        newRow = [typeId, types[str(typeId)]]
+        for order in orderTypes:
+            for attribute in attributes:
+                newRow.append(row[order][attribute])
+        newData.append(newRow)
+
+    # create pandas dataframe from nested lists
+    df = pd.DataFrame(newData, columns=columns)
+    df.to_csv('clobbered.csv')
+    return df
+
+
+def processInventory(interestedItemIds):
+    # https://www.fuzzwork.co.uk/dump/latest/
+
+    types = {}
+    with open('invTypes.csv', 'r', errors='replace') as typeFile:
+        typeCSV = csv.DictReader(typeFile)
+        for line in typeCSV:
+            try:
+                types[line["typeID"]] = line["typeName"]
+            except:
+                continue
+
+    materialMapping = {}
+    with open('invTypeMaterials.csv', 'r') as requirementsFile:
+        requirementsCSV = csv.DictReader(requirementsFile)
+        for line in requirementsCSV:
+            if line["typeID"] in materialMapping.keys():
+                materialMapping[line["typeID"]].append((line["materialTypeID"], line["quantity"], types[line["materialTypeID"]]))
+            else:
+                materialMapping[line["typeID"]] = [(line["materialTypeID"], line["quantity"], types[line["materialTypeID"]])]
+
+    itemMapping = EvEItemList(types, materialMapping)
+    itemMapping.CalculateAllRawMaterials()
+    return itemMapping
+>>>>>>> ethan
 
 
 if __name__ == "__main__":
+    processInventory([])
     queryJSON()
     # refresh = input("Would you like to refresh market data with new information? y/n")
     # if refresh == 'y':
